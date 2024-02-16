@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: StatusNeo Backstage App
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: Budh Dhawan
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -62,10 +62,15 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
+
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
-
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: aa0fa780a4c8fdb8a45a
+        clientSecret: 4c2ae7b73b27fcaa1cbc7cff2b96ad8b635bf344
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 

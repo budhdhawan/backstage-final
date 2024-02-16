@@ -65,6 +65,10 @@ const techdocsContent = (
     </TechDocsAddons>
   </EntityTechdocsContent>
 );
+import {
+  EntityCircleCIContent,
+  isCircleCIAvailable,
+} from '@circleci/backstage-plugin';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.

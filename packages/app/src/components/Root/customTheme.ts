@@ -20,7 +20,7 @@ const myTheme = createTheme({
   fontFamily: 'Arial, sans-serif', // Change the font family
   defaultPageTheme: 'home', // Set a default page theme
 
-  // Customize page themes
+  // Customize page themesa
   pageTheme: {
     home: genPageTheme({ colors: ['#3498db', '#ecf0f1'], shape: shapes.wave }),
     documentation: genPageTheme({

@@ -1,11 +1,3 @@
-/*
- * Hi!
- *
- * Note that this is an EXAMPLE Backstage backend. Please check the README.
- *
- * Happy hacking!
- */
-
 import Router from 'express-promise-router';
 import {
   createServiceBuilder,
@@ -28,6 +20,7 @@ import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
 import search from './plugins/search';
+import chatGPTBackend from './plugins/chatgpt'; // Import the chatgpt plugin
 import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
@@ -84,6 +77,7 @@ async function main() {
   const proxyEnv = useHotMemoize(module, () => createEnv('proxy'));
   const techdocsEnv = useHotMemoize(module, () => createEnv('techdocs'));
   const searchEnv = useHotMemoize(module, () => createEnv('search'));
+  const chatgptEnv = useHotMemoize(module, () => createEnv('chatgpt')); // Create chatgpt environment
   const appEnv = useHotMemoize(module, () => createEnv('app'));
 
   const apiRouter = Router();
@@ -93,6 +87,7 @@ async function main() {
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
+  apiRouter.use('/chatgpt', await chatGPTBackend(chatgptEnv)); // Add chatgpt plugin to the router
 
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());

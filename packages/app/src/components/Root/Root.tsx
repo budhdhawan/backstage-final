@@ -125,7 +125,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
           <SidebarScrollWrapper>
             <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
             <SidebarItem icon={MenuIcon} to="myplugin" text="My Plugin" />
-            <SidebarItem icon={MenuIcon} to="chatgpt" text="ChatGPT" /> {/* Add the new plugin sidebar item */}
+            <SidebarItem icon={MenuIcon} to="chatgpt" text="ChatGPT" /> 
+            <SidebarItem icon={MenuIcon} to="demo" text="GithubInfo" />
           </SidebarScrollWrapper>
         </SidebarGroup>
         <SidebarSpace />
